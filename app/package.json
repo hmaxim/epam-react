@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "start",
-    "build": "webpack --mode development --devtool eval",
-    "build-prod": "webpack --mode production --devtool source-map",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --env.NODE_ENV=local --devtool eval",
+    "build-prod": "webpack --env.production --devtool source-map",
+    "test": "jest --watchAll"
   },
   "dependencies": {
     "react": "^16.12.0",
