@@ -5,32 +5,14 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  context: path.resolve(__dirname, "src"),
+  context: path.resolve(__dirname, "../src"),
   entry: "./index.js",
   output: {
     filename: "bundle.js",
-    path: path.resolve(__dirname, "dist")
-  },
-  devServer: {
-    contentBase: path.resolve(__dirname, "dist"),
-    historyApiFallback: {
-      index: '/'
-    }
+    path: path.resolve(__dirname, "../dist")
   },
   resolve: {
     extensions: [".tsx", ".jsx", ".ts", ".js"]
-  },
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        commons: {
-          name: "commons",
-          chunks: "all",
-          minSize: 0,
-          minChunks: 2
-        }
-      }
-    }
   },
   module: {
     rules: [
@@ -70,6 +52,5 @@ module.exports = {
       template: "./index.html"
     }),
     new MiniCssExtractPlugin()
-  ],
-  watch: false
+  ]
 };
