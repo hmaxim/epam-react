@@ -8,6 +8,8 @@ dist/
 
 # dependencies
 /node_modules
+./node_modules
+./app/node_modules
 package-lock.json
 ../package-lock.json
 
@@ -27,6 +29,8 @@ package-lock.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+.DS_Store
+/.DS_Store
 # compiled output
 /dist
 ./app/dist
