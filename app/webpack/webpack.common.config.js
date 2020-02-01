@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   context: path.resolve(__dirname, "../src"),
-  entry: "./index.js",
+  entry: "./index.ts",
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "../dist")
@@ -17,12 +17,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.(ts|tsx)?$/,
         loader: "ts-loader",
         exclude: /node-modules/
       },
       {
-        test: /\.jsx?$/,
+        test: /\.(js|jsx)?$/,
         exclude: /(node_modules|bower_components)/,
         loader: "babel-loader",
         query: {
@@ -30,7 +30,7 @@ module.exports = {
         }
       },
       {
-        test: /\.jsx$/,
+        test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
         loader: "eslint-loader",
         enforce: "pre",
