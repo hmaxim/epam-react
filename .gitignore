@@ -31,6 +31,8 @@ package-lock.json
 !.vscode/extensions.json
 .DS_Store
 /.DS_Store
+.DS_Store
+./.DS_Store
 # compiled output
 /dist
 ./app/dist
@@ -70,3 +72,6 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+app/.DS_Store
+app/.DS_Store
+app/.DS_Store
