@@ -26,7 +26,7 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         loader: "babel-loader",
         query: {
-          cwd: __dirname,
+          cwd: __dirname
         }
       },
       {
@@ -38,17 +38,32 @@ module.exports = {
         test: /\.js(x?)$/,
         exclude: /(node_modules|bower_components)/,
         loader: "eslint-loader",
-        enforce: "pre",
+        enforce: "pre"
       },
       {
         test: /\.s[ac]ss$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true,
+              importLoaders: 1,
+              modules: {
+                localIdentName: "[name]__[local]___[hash:base64:5]"
+              }
+            }
+          },
+          "sass-loader"
+        ]
       }
     ]
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+      "process.env.NODE_ENV": JSON.stringify(
+        process.env.NODE_ENV || "development"
+      )
     }),
     new webpack.HotModuleReplacementPlugin(),
     new CaseSensitivePathsPlugin(),
@@ -56,6 +71,6 @@ module.exports = {
       hash: true,
       template: "./index.html"
     }),
-    new MiniCssExtractPlugin()
+    new MiniCssExtractPlugin({ filename: "[name].css" })
   ]
 };
