@@ -41,7 +41,7 @@ module.exports = {
         enforce: "pre"
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.(css|s[ac]ss$)/i,
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -55,6 +55,14 @@ module.exports = {
             }
           },
           "sass-loader"
+        ]
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: "file-loader"
+          }
         ]
       }
     ]
