@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import AppWrapper from "./AppWrapper";
+import ErrorBoundary from "../error-boundary/ErrorBoundary";
 import HeaderContainer from "../header-container/HeaderContainer";
 import ListHeaderContainer from "../list-header-container/ListHeaderContainer";
 import MoviesListWrapper from "../movies-list-container/MoviesListWrapper";
@@ -42,15 +43,17 @@ const App = () => {
   };
 
   return (
-    <AppWrapper>
-      <HeaderContainer></HeaderContainer>
-      <SearchContainer></SearchContainer>
-      {/* <MovieDetailsContainer {...movie}></MovieDetailsContainer> */}
-      <ListHeaderContainer
-        listHeaderTitle={" movie found"}
-      ></ListHeaderContainer>
-      <MoviesListWrapper isEmptyList={false}>{getMovies()}</MoviesListWrapper>
-    </AppWrapper>
+    <ErrorBoundary>
+      <AppWrapper>
+        <HeaderContainer></HeaderContainer>
+        <SearchContainer></SearchContainer>
+        {/* <MovieDetailsContainer {...movie}></MovieDetailsContainer> */}
+        <ListHeaderContainer
+          listHeaderTitle={" movie found"}
+        ></ListHeaderContainer>
+        <MoviesListWrapper isEmptyList={false}>{getMovies()}</MoviesListWrapper>
+      </AppWrapper>
+    </ErrorBoundary>
   );
 };
 
