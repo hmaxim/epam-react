@@ -1,13 +1,18 @@
 import React from "react";
-import HeaderWrapper from "./HeaderWrapper";
+import HeaderWrapper from "./components/HeaderWrapper";
+import AppTitle from './components/AppTitle';
+import SearchIcon from './components/SearchIcon';
 
 const headerContainer = () => {
   return (
     <HeaderWrapper>
-      <div className="app-title">neflixRoulette</div>
-      {/* <div className="search-icon" onClick={() => console.log('navigated to search')}>
-        Go to search
-      </div> */}
+
+      <AppTitle>
+      neflixRoulette
+      </AppTitle>
+
+     <SearchIcon/>
+
     </HeaderWrapper>
   );
 };

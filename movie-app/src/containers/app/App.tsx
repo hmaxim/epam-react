@@ -4,9 +4,10 @@ import ErrorBoundary from "../error-boundary/ErrorBoundary";
 import HeaderContainer from "../header-container/HeaderContainer";
 import ListHeaderContainer from "../list-header-container/ListHeaderContainer";
 import MoviesListWrapper from "../movies-list-container/MoviesListWrapper";
-import MovieItem from "../../components/movie-item/MovieItem";
+import MovieItem from "../../shared-components/movie-item/MovieItem";
 import MovieDetailsContainer from "../movie-details-container/MovieDetailsContainer";
 import SearchContainer from "../search-container/SearchContainer";
+import EmptyState from "../../shared-components/empty-state/EmptyState";
 import { IMovie } from "../../interfaces/Movie";
 
 const App = () => {
@@ -29,7 +30,7 @@ const App = () => {
   };
 
   const getMovies = () => {
-    const arr: any = [];
+    const arr: IMovie[] = [];
     for (let index = 0; index <= 10; index++) {
       arr.push(movie);
     }
@@ -38,7 +39,7 @@ const App = () => {
         return <MovieItem {...item} key={item.id + Math.random()}></MovieItem>;
       });
     } else {
-      return <h1>No films found</h1>;
+      return <EmptyState>No films found</EmptyState>;
     }
   };
 
@@ -48,9 +49,7 @@ const App = () => {
         <HeaderContainer></HeaderContainer>
         <SearchContainer></SearchContainer>
         {/* <MovieDetailsContainer {...movie}></MovieDetailsContainer> */}
-        <ListHeaderContainer
-          listHeaderTitle={" movie found"}
-        ></ListHeaderContainer>
+        <ListHeaderContainer listHeaderTitle={" movie found"} />
         <MoviesListWrapper isEmptyList={false}>{getMovies()}</MoviesListWrapper>
       </AppWrapper>
     </ErrorBoundary>

@@ -13,12 +13,6 @@ const MoviesListWrapper = styled.div`
   padding: 0 8%;
   overflow-y: auto;
   height: 50%;
-
-  h1 {
-    color: white;
-    font-size: 45px;
-    letter-spacing: 1.5px;
-  }
 `;
 
 export default MoviesListWrapper;

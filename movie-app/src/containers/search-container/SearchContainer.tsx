@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import SearchWrapper from "./SearchWrapper";
-import Input from "../../components/input/InputWrapper";
-import ButtonWrapper from "../../components/button/ButtonWrapper";
-import SwitchersButtons from "../../components/switchers-buttons/SwitchersButtons";
+import Input from "../../shared-components/input/InputWrapper";
+import ButtonWrapper from "../../shared-components/button/ButtonWrapper";
+import SwitchersButtons from "../../shared-components/switchers-buttons/SwitchersButtons";
 
 const searchButtonsParams = [
   { label: "Title", active: true, buttonValue: "title" },
