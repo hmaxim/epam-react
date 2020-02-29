@@ -5,6 +5,9 @@ dist/
 ./movie-app/dist
 /tmp
 /out-tsc
+/coverage
+./coverage
+coverage
 
 # dependencies
 /node_modules
