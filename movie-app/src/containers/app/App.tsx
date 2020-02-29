@@ -49,6 +49,7 @@ const App = () => {
         <HeaderContainer></HeaderContainer>
         <SearchContainer></SearchContainer>
         {/* <MovieDetailsContainer {...movie}></MovieDetailsContainer> */}
+
         <ListHeaderContainer listHeaderTitle={" movie found"} />
         <MoviesListWrapper isEmptyList={false}>{getMovies()}</MoviesListWrapper>
       </AppWrapper>
