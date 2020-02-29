@@ -12,7 +12,7 @@ const MoviesListWrapper = styled.div`
     props.isEmptyList ? "center" : "flex-start"};
   padding: 0 8%;
   overflow-y: auto;
-  height: 50%;
+  height: 59%;
 `;
 
 export default MoviesListWrapper;

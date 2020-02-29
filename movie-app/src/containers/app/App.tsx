@@ -50,7 +50,7 @@ const App = () => {
         <SearchContainer></SearchContainer>
         {/* <MovieDetailsContainer {...movie}></MovieDetailsContainer> */}
         <ListHeaderContainer listHeaderTitle={" movie found"} />
-        <MoviesListWrapper isEmptyList={false}>{getMovies()}</MoviesListWrapper>
+        <MoviesListWrapper id="movie-scroller" isEmptyList={false}>{getMovies()}</MoviesListWrapper>
       </AppWrapper>
     </ErrorBoundary>
   );

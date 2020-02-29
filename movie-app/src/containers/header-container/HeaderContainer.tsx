@@ -8,7 +8,7 @@ const headerContainer = () => {
     <HeaderWrapper>
 
       <AppTitle>
-      neflixRoulette
+      netflixRoulette
       </AppTitle>
 
      <SearchIcon/>

@@ -47,12 +47,4 @@ describe("MovieItem Component", () => {
   test("should have  movie-year", () => {
     expect(toJson(component.find(".movie-year"))).toBeDefined();
   });
-
-  // test("should receive props", () => {
-  //   let spy =  jest.spyOn(component.instance(), 'navigate')
-  //   .mockImplementation(() => 8)
-
-  //   component.find(MovieItemWrapper).simulate('click');
-  //   expect(spy).toHaveBeenCalled()
-  // });
 });
