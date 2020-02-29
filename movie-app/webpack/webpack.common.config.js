@@ -6,44 +6,72 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   context: path.resolve(__dirname, "../src"),
-  entry: "./index.ts",
+  entry: "./index.tsx",
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "../dist")
   },
   resolve: {
-    extensions: [".tsx", ".jsx", ".ts", ".js"]
+    extensions: [".js", ".ts", ".jsx", ".tsx"]
   },
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)?$/,
+        test: /\.ts(x?)$/,
         loader: "ts-loader",
         exclude: /node-modules/
       },
       {
-        test: /\.(js|jsx)?$/,
+        test: /\.js(x?)$/,
         exclude: /(node_modules|bower_components)/,
         loader: "babel-loader",
         query: {
-          cwd: __dirname,
+          cwd: __dirname
         }
       },
       {
-        test: /\.(js|jsx)$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: "eslint-loader",
         enforce: "pre",
+        test: /\.js$/,
+        loader: "source-map-loader"
       },
       {
-        test: /\.s[ac]ss$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
+        test: /\.js(x?)$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: "eslint-loader",
+        enforce: "pre"
+      },
+      {
+        test: /\.(css|s[ac]ss$)/i,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true,
+              importLoaders: 1,
+              modules: {
+                localIdentName: "[name]__[local]___[hash:base64:5]"
+              }
+            }
+          },
+          "sass-loader"
+        ]
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: "file-loader"
+          }
+        ]
       }
     ]
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+      "process.env.NODE_ENV": JSON.stringify(
+        process.env.NODE_ENV || "development"
+      )
     }),
     new webpack.HotModuleReplacementPlugin(),
     new CaseSensitivePathsPlugin(),
@@ -51,6 +79,6 @@ module.exports = {
       hash: true,
       template: "./index.html"
     }),
-    new MiniCssExtractPlugin()
+    new MiniCssExtractPlugin({ filename: "[name].css" })
   ]
 };

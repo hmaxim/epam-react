@@ -2,14 +2,14 @@
 /dist
 dist
 dist/
-./app/dist
+./movie-app/dist
 /tmp
 /out-tsc
 
 # dependencies
 /node_modules
 ./node_modules
-./app/node_modules
+./movie-app/node_modules
 package-lock.json
 ../package-lock.json
 
@@ -31,9 +31,11 @@ package-lock.json
 !.vscode/extensions.json
 .DS_Store
 /.DS_Store
+.DS_Store
+./.DS_Store
 # compiled output
 /dist
-./app/dist
+./movie-app/dist
 /tmp
 /out-tsc
 
@@ -42,8 +44,8 @@ package-lock.json
 node_modules
 package-lock.json
 ../packaga-lock.json
-./app/node_modules
-./app/package-lock.json
+./movie-app/node_modules
+./movie-app/package-lock.json
 
 # IDEs and editors
 /.idea
@@ -70,3 +72,6 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+movie-app/.DS_Store
+movie-app/.DS_Store
+movie-app/.DS_Store
