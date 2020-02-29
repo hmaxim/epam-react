@@ -9,6 +9,7 @@
     "module": "esnext",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "include": ["./src", "./test", "./mocks", "./extend-expect.d.ts"],
     "plugins": [
       {
         "transform": "typescript-magic-variable-plugin",

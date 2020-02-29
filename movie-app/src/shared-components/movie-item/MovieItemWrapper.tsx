@@ -26,4 +26,6 @@ const MovieItemWrapper = styled.div`
   }
 `;
 
+MovieItemWrapper.displayName = "MovieItemWrapper";
+
 export default MovieItemWrapper;
