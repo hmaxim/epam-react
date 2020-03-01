@@ -1,7 +1,7 @@
 import React from "react";
 import MovieDetailsWrapper from "./MovieDetailsWrapper";
 import poster from "../../assets/images/netflix-streaming-vs-traditional-cable.jpg";
-import { IMovie } from "../../interfaces/Movie";
+import { IMovie } from "../../interfaces/IMovie";
 
 const MovieDetailsContainer = (props: IMovie) => {
   const genres = (genres: string[]) => <span>{genres.join(",")}</span>;

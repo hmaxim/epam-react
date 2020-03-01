@@ -1,17 +1,18 @@
 import 'jsdom-global/register';
-import React, { Component } from 'react';
-import { shallow, mount, render } from 'enzyme';
-import { IMovie } from '../../interfaces/IMovie';
-import MovieItem from './MovieItem';
+import React from 'react';
+import { render, shallow, mount } from 'enzyme';
 import 'jest-enzyme';
 import 'jest-styled-components';
-import MovieItemWrapper from './MovieItemWrapper';
+import toJson from "enzyme-to-json";
+import MovieDetailsContainer from './MovieDetailsContainer';
+import MovieDetailsWrapper from './MovieDetailsWrapper';
+import { IMovie } from '../../interfaces/IMovie';
 
 const MOVIE: IMovie = {
   id: 0,
   title: 'Titanic',
   tagline: null,
-  vote_average: 4,
+  vote_average: 2,
   vote_count: 0,
   release_date: '1997',
   poster_path: '../../assets/images/netflix-streaming-vs-traditional-cable.jpg',
@@ -23,18 +24,21 @@ const MOVIE: IMovie = {
   genres: ['Action'],
 };
 
-describe('MovieItem Component', () => {
+describe('ListHeaderContainer component', () => {
   let component: any;
 
   beforeEach(() => {
-    component = shallow(<MovieItem {...MOVIE} />);
+    component = render(<MovieDetailsContainer {...MOVIE} />);
   });
 
   test('should be rendered', () => {
-    expect(component.find(MovieItemWrapper)).toMatchSnapshot();
+    expect(component.find(MovieDetailsWrapper)).toMatchSnapshot();
   });
 
-  test('should does click', () => {
-    component.find(MovieItemWrapper).simulate('click');
-  });
+  /**
+   * uncommit when jest-styled-components will be fixed
+   */
+//   test('should define props in MovieDetailsWrapper', () => {
+//       expect(component.find('.score')).toHaveStyleRule('color', 'orange'); 
+//   });
 });

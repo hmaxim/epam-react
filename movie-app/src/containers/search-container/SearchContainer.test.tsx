@@ -3,16 +3,17 @@ import React, { Component } from 'react';
 import { shallow, mount, render } from 'enzyme';
 import 'jest-enzyme';
 import 'jest-styled-components';
-import App from './App';
+import SearchContainer from './SearchContainer';
+import SearchWrapper from './SearchWrapper';
 
-describe('App component', () => {
+describe('SearchContainer', () => {
   let component: any;
 
   beforeEach(() => {
-    component = render(<App />);
+    component = render(<SearchContainer />);
   });
 
   test('to be render', () => {
-    expect(component.find(App)).toMatchSnapshot();
+      expect(component.find(SearchWrapper)).toMatchSnapshot()
   });
 });

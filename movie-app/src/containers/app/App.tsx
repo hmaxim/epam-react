@@ -8,7 +8,7 @@ import MovieItem from "../../shared-components/movie-item/MovieItem";
 import MovieDetailsContainer from "../movie-details-container/MovieDetailsContainer";
 import SearchContainer from "../search-container/SearchContainer";
 import EmptyState from "../../shared-components/empty-state/EmptyState";
-import { IMovie } from "../../interfaces/Movie";
+import { IMovie } from "../../interfaces/IMovie";
 
 const MOVIE: IMovie = {
   id: 0,

@@ -7,7 +7,7 @@
     "start": "webpack-dev-server --config ./webpack/webpack.development.config.js",
     "build": "webpack --env.NODE_ENV=local --config ./webpack/webpack.production.config.js",
     "build-prod": "webpack --env.production --config ./webpack/webpack.production.config.js",
-    "test": "clear && jest --watchAll --coverage=true",
+    "test": "clear && jest --watchAll --coverage=true --updateSnapshot",
     "cypress:open": "cypress open"
   },
   "dependencies": {
