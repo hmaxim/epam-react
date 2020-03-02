@@ -4,7 +4,7 @@ import { render } from 'enzyme';
 import 'jest-enzyme';
 import 'jest-styled-components';
 import ListHeaderContainer from './ListHeaderContainer';
-import ListHeaderWrapper from './components/ListHeaderWrapper';
+import toJson from 'enzyme-to-json';
 
 describe('ListHeaderContainer component', () => {
   let component: any;
@@ -14,6 +14,6 @@ describe('ListHeaderContainer component', () => {
   });
 
   test('should be rendered', () => {
-    expect(component.find(ListHeaderWrapper)).toMatchSnapshot();
+    expect(toJson(component)).toMatchSnapshot();
   });
 });

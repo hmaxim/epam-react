@@ -1,3 +1,142 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ListHeaderContainer component should be rendered 1`] = `null`;
+exports[`ListHeaderContainer component should be rendered 1`] = `
+.c0 {
+  height: 50%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 0 9.5%;
+}
+
+.c0 .movie-poster {
+  width: 323px;
+}
+
+.c0 .movie-details {
+  margin-left: 50px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: calc(100% - 375px);
+}
+
+.c0 .movie-details .movie-title-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c0 .movie-details .movie-title-container .title {
+  color: white;
+  display: inline-block;
+  margin-right: 40px;
+}
+
+.c0 .movie-details .movie-title-container .score {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  color: orange;
+  border: 1px solid white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.c0 .movie-details .genre {
+  color: white;
+}
+
+.c0 .movie-details .year-time {
+  color: #f65261;
+}
+
+.c0 .movie-details .year-time span {
+  display: inline-block;
+  margin-right: 40px;
+}
+
+.c0 .movie-details .description {
+  margin-top: 50px;
+  color: white;
+  font-size: 14px;
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="movie-poster"
+  >
+    <img
+      alt="poster"
+      src="[object Object]"
+    />
+  </div>
+  <div
+    class="movie-details"
+  >
+    <div
+      class="movie-title-container"
+    >
+      <h1
+        class="title"
+      >
+        Titanic
+      </h1>
+      <div
+        class="score"
+      >
+        2.0
+      </div>
+    </div>
+    <div
+      class="genre"
+    >
+      <span>
+        Action
+      </span>
+    </div>
+    <div
+      class="year-time"
+    >
+      <span>
+        1997 year
+      </span>
+      <span>
+        150 min
+      </span>
+    </div>
+    <div
+      class="description"
+    >
+      <span>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      </span>
+    </div>
+  </div>
+</div>
+`;

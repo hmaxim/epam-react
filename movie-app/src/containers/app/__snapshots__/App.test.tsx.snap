@@ -1,3 +1,700 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App component to be render 1`] = `null`;
+exports[`App component to be render 1`] = `
+.c0 {
+  width: 100%;
+  height: 100%;
+  background: #232323;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.c2 {
+  color: #f65261;
+  height: 20px;
+  font-size: 20px;
+  padding: 20px 60px;
+}
+
+.c3 {
+  color: #f65261;
+  cursor: pointer;
+}
+
+.c9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 9.5%;
+  color: white;
+  background: #555555;
+}
+
+.c9 .search-buttons-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: white;
+  padding: 20px 0;
+}
+
+.c9 .search-buttons-container span {
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+  margin-right: 30px;
+  font-size: 20px;
+}
+
+.c9 .search-buttons-container button {
+  width: auto;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+}
+
+.c10 {
+  height: 40px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c11 {
+  margin-left: 65%;
+}
+
+.c7 {
+  background: #F65261;
+  border-radius: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+  color: white;
+  outline: none;
+  text-transform: uppercase;
+  width: auto;
+  padding: 5px 10px;
+}
+
+.c8 {
+  background: rgba(85,85,85,0.5);
+  border-radius: 3px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+  color: white;
+  outline: none;
+  text-transform: uppercase;
+  width: auto;
+  padding: 5px 10px;
+}
+
+.c12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  padding: 0 8%;
+  overflow-y: auto;
+  height: 59%;
+}
+
+.c13 {
+  width: 323px;
+  margin: 40px 20px;
+}
+
+.c13 .movie-info {
+  color: white;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.c13 .movie-info .movie-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.c13 .movie-info .movie-year {
+  padding: 3px 5px;
+  border: 1px solid white;
+  border-radius: 3px;
+}
+
+.c4 {
+  height: 25%;
+  width: 100%;
+}
+
+.c4 .search-container {
+  padding: 0 9.5%;
+}
+
+.c4 .search-container .search-title {
+  color: #ffffff;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+  vertical-align: top;
+}
+
+.c4 .search-container button {
+  width: 150px;
+  height: 39.5px;
+  font-size: 20px;
+  vertical-align: top;
+}
+
+.c4 .search-container .search-buttons-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: white;
+  padding: 20px 0;
+}
+
+.c4 .search-container .search-buttons-container span {
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+  margin-right: 30px;
+  font-size: 20px;
+}
+
+.c4 .search-container .search-buttons-container button {
+  width: auto;
+  border: none;
+  cursor: pointer;
+}
+
+.c5 {
+  width: calc(100% - 190px);
+  height: 30px;
+  padding: 5px 15px;
+  color: #ffffff;
+  margin-right: 10px;
+  background: rgba(85,85,85,0.5);
+  border: none;
+  border-radius: 4px;
+  outline: none;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c6 {
+  background: #f65261;
+  color: #ffffff;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+}
+
+.c6:focus {
+  outline: none;
+}
+
+.c6:active {
+  opacity: 0.8;
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2"
+    >
+      netflixRoulette
+    </div>
+    <div
+      class="c3"
+    />
+  </div>
+  <div
+    class="c4"
+  >
+    <div
+      class="search-container"
+    >
+      <h1
+        class="search-title"
+      >
+        FIND YOUR MOVIE
+      </h1>
+      <div>
+        <input
+          class="c5"
+        />
+        <button
+          class="c6"
+        >
+          SEARCH
+        </button>
+        <div
+          class="search-buttons-container"
+        >
+          <span>
+            SEARCH BY
+          </span>
+          <button
+            class="c7"
+            id="Title"
+          >
+            Title
+          </button>
+          <button
+            class="c8"
+            id="Genre"
+          >
+            Genre
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="c9"
+  >
+    <div
+      class="c10"
+    >
+       movie found
+    </div>
+    <div
+      class="c11"
+    >
+      <div
+        class="search-buttons-container"
+      >
+        <span>
+          SORT BY
+        </span>
+        <button
+          class="c7"
+          id="Release Date"
+        >
+          Release Date
+        </button>
+        <button
+          class="c8"
+          id="Rating"
+        >
+          Rating
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="c12"
+    id="movie-scroller"
+  >
+    <div
+      class="c13"
+    >
+      <div
+        class="movie-poster"
+      >
+        <img
+          alt="poster"
+          src="[object Object]"
+        />
+      </div>
+      <div
+        class="movie-info"
+      >
+        <div>
+          <div
+            class="movie-title"
+          >
+            Titanic
+          </div>
+          <span>
+            Action
+          </span>
+        </div>
+        <div
+          class="movie-year"
+        >
+          1997
+        </div>
+      </div>
+    </div>
+    <div
+      class="c13"
+    >
+      <div
+        class="movie-poster"
+      >
+        <img
+          alt="poster"
+          src="[object Object]"
+        />
+      </div>
+      <div
+        class="movie-info"
+      >
+        <div>
+          <div
+            class="movie-title"
+          >
+            Titanic
+          </div>
+          <span>
+            Action
+          </span>
+        </div>
+        <div
+          class="movie-year"
+        >
+          1997
+        </div>
+      </div>
+    </div>
+    <div
+      class="c13"
+    >
+      <div
+        class="movie-poster"
+      >
+        <img
+          alt="poster"
+          src="[object Object]"
+        />
+      </div>
+      <div
+        class="movie-info"
+      >
+        <div>
+          <div
+            class="movie-title"
+          >
+            Titanic
+          </div>
+          <span>
+            Action
+          </span>
+        </div>
+        <div
+          class="movie-year"
+        >
+          1997
+        </div>
+      </div>
+    </div>
+    <div
+      class="c13"
+    >
+      <div
+        class="movie-poster"
+      >
+        <img
+          alt="poster"
+          src="[object Object]"
+        />
+      </div>
+      <div
+        class="movie-info"
+      >
+        <div>
+          <div
+            class="movie-title"
+          >
+            Titanic
+          </div>
+          <span>
+            Action
+          </span>
+        </div>
+        <div
+          class="movie-year"
+        >
+          1997
+        </div>
+      </div>
+    </div>
+    <div
+      class="c13"
+    >
+      <div
+        class="movie-poster"
+      >
+        <img
+          alt="poster"
+          src="[object Object]"
+        />
+      </div>
+      <div
+        class="movie-info"
+      >
+        <div>
+          <div
+            class="movie-title"
+          >
+            Titanic
+          </div>
+          <span>
+            Action
+          </span>
+        </div>
+        <div
+          class="movie-year"
+        >
+          1997
+        </div>
+      </div>
+    </div>
+    <div
+      class="c13"
+    >
+      <div
+        class="movie-poster"
+      >
+        <img
+          alt="poster"
+          src="[object Object]"
+        />
+      </div>
+      <div
+        class="movie-info"
+      >
+        <div>
+          <div
+            class="movie-title"
+          >
+            Titanic
+          </div>
+          <span>
+            Action
+          </span>
+        </div>
+        <div
+          class="movie-year"
+        >
+          1997
+        </div>
+      </div>
+    </div>
+    <div
+      class="c13"
+    >
+      <div
+        class="movie-poster"
+      >
+        <img
+          alt="poster"
+          src="[object Object]"
+        />
+      </div>
+      <div
+        class="movie-info"
+      >
+        <div>
+          <div
+            class="movie-title"
+          >
+            Titanic
+          </div>
+          <span>
+            Action
+          </span>
+        </div>
+        <div
+          class="movie-year"
+        >
+          1997
+        </div>
+      </div>
+    </div>
+    <div
+      class="c13"
+    >
+      <div
+        class="movie-poster"
+      >
+        <img
+          alt="poster"
+          src="[object Object]"
+        />
+      </div>
+      <div
+        class="movie-info"
+      >
+        <div>
+          <div
+            class="movie-title"
+          >
+            Titanic
+          </div>
+          <span>
+            Action
+          </span>
+        </div>
+        <div
+          class="movie-year"
+        >
+          1997
+        </div>
+      </div>
+    </div>
+    <div
+      class="c13"
+    >
+      <div
+        class="movie-poster"
+      >
+        <img
+          alt="poster"
+          src="[object Object]"
+        />
+      </div>
+      <div
+        class="movie-info"
+      >
+        <div>
+          <div
+            class="movie-title"
+          >
+            Titanic
+          </div>
+          <span>
+            Action
+          </span>
+        </div>
+        <div
+          class="movie-year"
+        >
+          1997
+        </div>
+      </div>
+    </div>
+    <div
+      class="c13"
+    >
+      <div
+        class="movie-poster"
+      >
+        <img
+          alt="poster"
+          src="[object Object]"
+        />
+      </div>
+      <div
+        class="movie-info"
+      >
+        <div>
+          <div
+            class="movie-title"
+          >
+            Titanic
+          </div>
+          <span>
+            Action
+          </span>
+        </div>
+        <div
+          class="movie-year"
+        >
+          1997
+        </div>
+      </div>
+    </div>
+    <div
+      class="c13"
+    >
+      <div
+        class="movie-poster"
+      >
+        <img
+          alt="poster"
+          src="[object Object]"
+        />
+      </div>
+      <div
+        class="movie-info"
+      >
+        <div>
+          <div
+            class="movie-title"
+          >
+            Titanic
+          </div>
+          <span>
+            Action
+          </span>
+        </div>
+        <div
+          class="movie-year"
+        >
+          1997
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -4,7 +4,7 @@ import { shallow, mount, render } from 'enzyme';
 import 'jest-enzyme';
 import 'jest-styled-components';
 import SearchContainer from './SearchContainer';
-import SearchWrapper from './SearchWrapper';
+import toJson from 'enzyme-to-json';
 
 describe('SearchContainer', () => {
   let component: any;
@@ -14,6 +14,6 @@ describe('SearchContainer', () => {
   });
 
   test('to be render', () => {
-      expect(component.find(SearchWrapper)).toMatchSnapshot()
+    expect(toJson(component)).toMatchSnapshot();
   });
 });

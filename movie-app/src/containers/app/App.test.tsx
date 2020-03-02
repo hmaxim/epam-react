@@ -4,6 +4,7 @@ import { shallow, mount, render } from 'enzyme';
 import 'jest-enzyme';
 import 'jest-styled-components';
 import App from './App';
+import toJson from 'enzyme-to-json';
 
 describe('App component', () => {
   let component: any;
@@ -12,7 +13,7 @@ describe('App component', () => {
     component = render(<App />);
   });
 
-  test('to be render', () => {
-    expect(component.find(App)).toMatchSnapshot();
+  test('to be render', () => {  
+    expect(toJson(component)).toMatchSnapshot();
   });
 });

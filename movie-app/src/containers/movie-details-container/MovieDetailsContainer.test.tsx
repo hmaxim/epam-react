@@ -5,7 +5,6 @@ import 'jest-enzyme';
 import 'jest-styled-components';
 import toJson from "enzyme-to-json";
 import MovieDetailsContainer from './MovieDetailsContainer';
-import MovieDetailsWrapper from './MovieDetailsWrapper';
 import { IMovie } from '../../interfaces/IMovie';
 
 const MOVIE: IMovie = {
@@ -32,7 +31,7 @@ describe('ListHeaderContainer component', () => {
   });
 
   test('should be rendered', () => {
-    expect(component.find(MovieDetailsWrapper)).toMatchSnapshot();
+    expect(toJson(component)).toMatchSnapshot();
   });
 
   /**
