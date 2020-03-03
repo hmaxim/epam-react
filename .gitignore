@@ -5,7 +5,12 @@ dist/
 ./movie-app/dist
 /tmp
 /out-tsc
-
+/coverage
+./coverage
+coverage
+.prettierrc.json
+./.prettierrc.json
+../.prettierrc.json
 # dependencies
 /node_modules
 ./node_modules

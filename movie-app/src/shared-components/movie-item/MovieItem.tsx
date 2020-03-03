@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import MovieItemWrapper from "./MovieItemWrapper";
 import posterLogo from "../../assets/images/netflix-streaming-vs-traditional-cable.jpg";
-import { IMovie } from "../../interfaces/Movie";
+import { IMovie } from "../../interfaces/IMovie";
 
 const MovieItem = (props: IMovie) => {
   const navigate = useCallback(() => {
@@ -9,7 +9,7 @@ const MovieItem = (props: IMovie) => {
   }, []);
 
   return (
-    <MovieItemWrapper onClick={() => navigate()}>
+    <MovieItemWrapper onClick={() => navigate}>
       <div className="movie-poster">
         <img src={posterLogo} alt="poster"></img>
       </div>

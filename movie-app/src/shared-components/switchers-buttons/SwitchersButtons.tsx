@@ -23,6 +23,7 @@ const SwitchersButtons = (props: any) => {
           <SwitchersButtonWrapper
             onClick={() => activateButton(index)}
             key={button.label}
+            id={button.label}
             active={button.active}
             firstElement={index === 0}
             lastElement={index === buttons.length - 1}

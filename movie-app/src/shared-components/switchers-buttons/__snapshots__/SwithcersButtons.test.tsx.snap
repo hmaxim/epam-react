@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SwitchersButtons component should be rendered 1`] = `
+Array [
+  .c0 {
+  background: #F65261;
+  border-radius: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+  color: white;
+  outline: none;
+  text-transform: uppercase;
+  width: auto;
+  padding: 5px 10px;
+}
+
+<SwitchersButtonWrapper__switcherButtonWrapper
+    active={true}
+    firstElement={true}
+    id="test1"
+    key="test1"
+    lastElement={false}
+    onClick={[Function]}
+  >
+    <button
+      className="c0"
+      id="test1"
+      onClick={[Function]}
+    >
+      test1
+    </button>
+  </SwitchersButtonWrapper__switcherButtonWrapper>,
+  .c0 {
+  background: rgba(85,85,85,0.5);
+  border-radius: 3px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+  color: white;
+  outline: none;
+  text-transform: uppercase;
+  width: auto;
+  padding: 5px 10px;
+}
+
+<SwitchersButtonWrapper__switcherButtonWrapper
+    active={false}
+    firstElement={false}
+    id="test2"
+    key="test2"
+    lastElement={true}
+    onClick={[Function]}
+  >
+    <button
+      className="c0"
+      id="test2"
+      onClick={[Function]}
+    >
+      test2
+    </button>
+  </SwitchersButtonWrapper__switcherButtonWrapper>,
+]
+`;

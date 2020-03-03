@@ -3,17 +3,17 @@ import React, { Component } from 'react';
 import { shallow, mount, render } from 'enzyme';
 import 'jest-enzyme';
 import 'jest-styled-components';
-import App from './App';
+import SearchContainer from './SearchContainer';
 import toJson from 'enzyme-to-json';
 
-describe('App component', () => {
+describe('SearchContainer', () => {
   let component: any;
 
   beforeEach(() => {
-    component = render(<App />);
+    component = render(<SearchContainer />);
   });
 
-  test('to be render', () => {  
+  test('to be render', () => {
     expect(toJson(component)).toMatchSnapshot();
   });
 });
