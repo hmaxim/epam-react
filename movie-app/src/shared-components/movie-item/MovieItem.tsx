@@ -11,7 +11,7 @@ const MovieItem = (props: IMovie) => {
   return (
     <MovieItemWrapper onClick={() => navigate}>
       <div className="movie-poster">
-        <img src={posterLogo} alt="poster"></img>
+        <img src={props.poster_path} alt="poster"></img>
       </div>
       <div className="movie-info">
         <div>

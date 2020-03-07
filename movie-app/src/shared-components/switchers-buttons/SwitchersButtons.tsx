@@ -1,5 +1,7 @@
-import React, { useState, useCallback } from "react";
-import SwitchersButtonWrapper from "./SwitchersButtonWrapper";
+import React, { useState, useCallback } from 'react';
+import SwitchersButtonWrapper from './SwitchersButtonWrapper';
+import configureStore from '../../redux/rootStore';
+import { loadMovies } from '../../redux/rootActions';
 
 const SwitchersButtons = (props: any) => {
   const [buttons, updateSearchButtons] = useState(props.searchButtonsParams);
@@ -10,9 +12,10 @@ const SwitchersButtons = (props: any) => {
         i === index ? (item.active = true) : (item.active = false);
         return item;
       });
+      configureStore.dispatch(loadMovies(arr[index].buttonValue));
       updateSearchButtons(arr);
     },
-    [buttons]
+    [buttons],
   );
 
   return (

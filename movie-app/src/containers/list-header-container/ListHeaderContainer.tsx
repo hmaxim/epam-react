@@ -1,12 +1,12 @@
-import React from "react";
-import ListHeaderWrapper from "./components/ListHeaderWrapper";
-import ListHeaderTitle from "./components/ListHeaderTitle";
-import ListHeaderSwitchersContainer from "./components/ListHeaderSwitchersContainer";
-import SwitchersButtons from "../../shared-components/switchers-buttons/SwitchersButtons";
+import React from 'react';
+import ListHeaderWrapper from './components/ListHeaderWrapper';
+import ListHeaderTitle from './components/ListHeaderTitle';
+import ListHeaderSwitchersContainer from './components/ListHeaderSwitchersContainer';
+import SwitchersButtons from '../../shared-components/switchers-buttons/SwitchersButtons';
 
 const sortButtons = [
-  { label: "Release Date", active: true, buttonValue: "date" },
-  { label: "Rating", active: false, buttonValue: "ratio" }
+  { label: 'Release Date', active: true, buttonValue: 'release_date' },
+  { label: 'Rating', active: false, buttonValue: 'vote_count' },
 ];
 
 const ListHeaderContainer = (props: any) => {
@@ -15,7 +15,7 @@ const ListHeaderContainer = (props: any) => {
       <ListHeaderTitle>{props.listHeaderTitle}</ListHeaderTitle>
       <ListHeaderSwitchersContainer>
         <SwitchersButtons
-          switchersTitle={"SORT BY"}
+          switchersTitle={'SORT BY'}
           searchButtonsParams={sortButtons}
         ></SwitchersButtons>
       </ListHeaderSwitchersContainer>
