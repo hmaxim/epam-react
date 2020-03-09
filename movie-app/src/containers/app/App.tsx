@@ -41,7 +41,7 @@ const App = (props: any) => {
         <SearchContainer></SearchContainer>
         {/* <MovieDetailsContainer {...movie}></MovieDetailsContainer> */}
 
-        <ListHeaderContainer listHeaderTitle={' movie found'} />
+        <ListHeaderContainer listHeaderTitle={`${props.movies.length} movies found`} />
         <MoviesListWrapper id="movie-scroller" isEmptyList={false}>
           {renderMovies(props.movies, props.loading)}
         </MoviesListWrapper>

@@ -4,6 +4,7 @@ import poster from "../../assets/images/netflix-streaming-vs-traditional-cable.j
 import { IMovie } from "../../interfaces/IMovie";
 
 const MovieDetailsContainer = (props: IMovie) => {
+  console.log(props)
   const genres = (genres: string[]) => <span>{genres.join(",")}</span>;
 
   return (
@@ -16,7 +17,7 @@ const MovieDetailsContainer = (props: IMovie) => {
         <div className="movie-title-container">
           <h1 className="title">{props.title}</h1>
           <div className="score">
-            {props.vote_average.toFixed(1)}
+            {/* {+props.vote_average.toFixed(1)} */}
           </div>
         </div>
         <div className="genre">{genres(props.genres)}</div>

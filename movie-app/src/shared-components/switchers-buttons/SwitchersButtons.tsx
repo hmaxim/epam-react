@@ -1,10 +1,11 @@
 import React, { useState, useCallback } from 'react';
 import SwitchersButtonWrapper from './SwitchersButtonWrapper';
-import configureStore from '../../redux/rootStore';
-import { loadMovies } from '../../redux/rootActions';
+
 
 const SwitchersButtons = (props: any) => {
   const [buttons, updateSearchButtons] = useState(props.searchButtonsParams);
+  //  console.log(props);
+
 
   const activateButton = useCallback(
     (index: number) => {
@@ -12,7 +13,11 @@ const SwitchersButtons = (props: any) => {
         i === index ? (item.active = true) : (item.active = false);
         return item;
       });
-      configureStore.dispatch(loadMovies(arr[index].buttonValue));
+
+      if(props.click){
+        props.click(arr[index].buttonValue);
+      }
+      
       updateSearchButtons(arr);
     },
     [buttons],
@@ -24,7 +29,9 @@ const SwitchersButtons = (props: any) => {
       {buttons.map((button: any, index: number) => {
         return (
           <SwitchersButtonWrapper
-            onClick={() => activateButton(index)}
+            onClick={() => {
+              activateButton(index);
+            }}
             key={button.label}
             id={button.label}
             active={button.active}

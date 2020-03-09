@@ -16,9 +16,9 @@ const MovieItem = (props: IMovie) => {
       <div className="movie-info">
         <div>
           <div className="movie-title">{props.title}</div>
-          {props.genres.map((genre: string, index: number) => (
-            <span key={index}>{genre}</span>
-          ))}
+          <span>
+            {props.genres.join(', ')}
+          </span>
         </div>
         <div className="movie-year">{props.release_date}</div>
       </div>
