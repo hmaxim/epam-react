@@ -1,39 +1,62 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import SearchWrapper from './SearchWrapper';
 import Input from '../../shared-components/input/InputWrapper';
 import ButtonWrapper from '../../shared-components/button/ButtonWrapper';
 import SwitchersButtons from '../../shared-components/switchers-buttons/SwitchersButtons';
 import { setSearchParams, loadMovies } from '../../redux/rootActions';
 import { connect } from 'react-redux';
-
-const searchButtonsParams = [
-  { label: 'Title', active: true, buttonValue: 'title' },
-  { label: 'Genre', active: false, buttonValue: 'genre' },
-];
+import { useHistory, useLocation } from 'react-router-dom';
+import { useQuery, getNavUrl } from '../../constants/constants';
 
 const SearchContainer = (props: any) => {
-  const switcherBtnClick = useCallback((buttonValue: string) => {
-    props.setSearchParams({ searchBy: buttonValue });
-  }, []);
+  const history = useHistory();
+  const location = useLocation();
+  const query = useQuery(location.search);
+  const isActive = (val: string): boolean => val === query.get('searchBy');
 
-  const onInputChange = useCallback((inputValue: string) => {
-    props.setSearchParams({ searchText: inputValue });
-  }, []);
+  const searchButtonsParams = [
+    { label: 'Title', active: isActive('title'), buttonValue: 'title' },
+    { label: 'Genre', active: isActive('genre'), buttonValue: 'genre' },
+  ];
+
+  const [inputValue, updateValue] = useState(query.get('search') || '');
+
+  const switcherBtnClick = useCallback(
+    (buttonValue: string) => {
+      props.setSearchParams({ searchBy: buttonValue });
+    },
+    [props.searchParams.searchBy],
+  );
+
+  const onInputChange = useCallback(
+    (value: string) => {
+      props.setSearchParams({ search: value });
+      updateValue(value);
+    },
+    [inputValue],
+  );
 
   const searchBtnClick = useCallback(() => {
-    props.loadMovies();
-  }, []);
+    history.push({
+      pathname: '/search',
+      search: getNavUrl(props.searchParams),
+    });
+  }, [props.searchParams]);
 
   return (
     <SearchWrapper>
       <div className="search-container">
         <h1 className="search-title">FIND YOUR MOVIE</h1>
         <div>
-          <Input onChange={event => onInputChange(event.target.value)}></Input>
-          <ButtonWrapper onClick={searchBtnClick }>SEARCH</ButtonWrapper>
+          <Input
+            onChange={event => onInputChange(event.target.value)}
+            value={inputValue}
+          ></Input>
+          <ButtonWrapper onClick={searchBtnClick}>SEARCH</ButtonWrapper>
           <SwitchersButtons
             switchersTitle={'SEARCH BY'}
             click={switcherBtnClick}
+            activeBtnValue={props.searchParams.searchBy}
             searchButtonsParams={searchButtonsParams}
           ></SwitchersButtons>
         </div>
@@ -49,7 +72,6 @@ const mapStateToProps = (state: any) => {
 };
 const mapDispatchToProps = {
   setSearchParams,
-  loadMovies,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchContainer);

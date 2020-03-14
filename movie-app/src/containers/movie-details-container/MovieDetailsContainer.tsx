@@ -1,36 +1,64 @@
-import React from "react";
-import MovieDetailsWrapper from "./MovieDetailsWrapper";
-import poster from "../../assets/images/netflix-streaming-vs-traditional-cable.jpg";
-import { IMovie } from "../../interfaces/IMovie";
+import React, { useEffect } from 'react';
+import MovieDetailsWrapper from './MovieDetailsWrapper';
+import { IMovie } from '../../interfaces/IMovie';
+import { connect } from 'react-redux';
+import {
+  getMovieById,
+  loadMovies,
+  setSearchParams,
+} from '../../redux/rootActions';
+import { useLocation } from 'react-router';
 
-const MovieDetailsContainer = (props: IMovie) => {
-  console.log(props)
-  const genres = (genres: string[]) => <span>{genres.join(",")}</span>;
+const MovieDetailsContainer = (props: any) => {
+  const location = useLocation();
+  useEffect(() => {
+    if (!props.selectedMovie) {
+      props.getMovieById(props.match.params.id);
+    }
+  }, [props.selectedMovie]);
 
-  return (
-    <MovieDetailsWrapper score={props.vote_average}>
+  const genres = (genres: string[]) => <span>{genres.join(', ')}</span>;
+
+  return props.selectedMovie ? (
+    <MovieDetailsWrapper score={props.selectedMovie.vote_average}>
       <div className="movie-poster">
-        <img src={poster} alt="poster" />
-        {/* <img src={props.movie.poster_path} alt="poster" /> */}
+        <img src={props.selectedMovie.poster_path} alt="poster" />
       </div>
       <div className="movie-details">
         <div className="movie-title-container">
-          <h1 className="title">{props.title}</h1>
+          <h1 className="title">{props.selectedMovie.title}</h1>
           <div className="score">
-            {/* {+props.vote_average.toFixed(1)} */}
+            {+props.selectedMovie.vote_average.toFixed(1)}
           </div>
         </div>
-        <div className="genre">{genres(props.genres)}</div>
+        <div className="genre">{genres(props.selectedMovie.genres)}</div>
         <div className="year-time">
-          <span>{props.release_date} year</span>
-          <span>{props.runtime} min</span>
+          <span>{props.selectedMovie.release_date} year</span>
+          <span>{props.selectedMovie.runtime} min</span>
         </div>
         <div className="description">
-          <span>{props.overview}</span>
+          <span>{props.selectedMovie.overview}</span>
         </div>
       </div>
     </MovieDetailsWrapper>
-  );
+  ) : null;
 };
 
-export default MovieDetailsContainer;
+const mapStateToProps = (state: any) => {
+  return {
+    movies: state.movies,
+    loading: state.loading,
+    error: state.error,
+    selectedMovie: state.selectedMovie,
+  };
+};
+const mapDispatchToProps = {
+  loadMovies,
+  getMovieById,
+  setSearchParams,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(MovieDetailsContainer);

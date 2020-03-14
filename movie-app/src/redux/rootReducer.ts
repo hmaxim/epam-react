@@ -3,7 +3,8 @@ import {
   LOAD_MOVIES_SUCCESS,
   LOAD_MOVIES_ERROR,
   SET_SEARCH_PARAMS,
-  setSearchParams,
+  SET_MOVIE_BY_ID,
+  SET_ROUTE_STATE,
 } from './rootActions';
 import { IMovie } from '../interfaces/IMovie';
 
@@ -11,10 +12,13 @@ export const initialState: any = {
   movies: [],
   loading: false,
   error: '',
+  route: '',
   searchParams: {
+    sortBy: 'release_date',
     searchBy: 'title',
-    searchText: '',
+    search: '',
   },
+  selectedMovie: null,
 };
 
 const reduxThunkReducer = (state = initialState, action: any) => {
@@ -44,6 +48,18 @@ const reduxThunkReducer = (state = initialState, action: any) => {
       return {
         ...state,
         searchParams: { ...state.searchParams, ...action.searchParams },
+      };
+    }
+    case SET_MOVIE_BY_ID: {
+      return {
+        ...state,
+        selectedMovie: action.selectedMovie,
+      };
+    }
+    case SET_ROUTE_STATE: {
+      return {
+        ...state,
+        route: action.route,
       };
     }
     default: {

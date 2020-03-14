@@ -1,11 +1,8 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import SwitchersButtonWrapper from './SwitchersButtonWrapper';
-
 
 const SwitchersButtons = (props: any) => {
   const [buttons, updateSearchButtons] = useState(props.searchButtonsParams);
-  //  console.log(props);
-
 
   const activateButton = useCallback(
     (index: number) => {
@@ -14,13 +11,13 @@ const SwitchersButtons = (props: any) => {
         return item;
       });
 
-      if(props.click){
+      if (props.click && props.activeBtnValue !== arr[index].buttonValue) {
         props.click(arr[index].buttonValue);
       }
-      
+
       updateSearchButtons(arr);
     },
-    [buttons],
+    [props.activeBtnValue],
   );
 
   return (
