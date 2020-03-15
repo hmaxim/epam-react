@@ -1,21 +1,24 @@
 import React, { useEffect } from 'react';
 import MovieDetailsWrapper from './MovieDetailsWrapper';
-import { IMovie } from '../../interfaces/IMovie';
 import { connect } from 'react-redux';
 import {
   getMovieById,
   loadMovies,
   setSearchParams,
 } from '../../redux/rootActions';
-import { useLocation } from 'react-router';
+import { useLocation, useHistory, useParams } from 'react-router';
 
 const MovieDetailsContainer = (props: any) => {
   const location = useLocation();
+  const params: any = useParams();
+
   useEffect(() => {
-    if (!props.selectedMovie) {
-      props.getMovieById(props.match.params.id);
+    if (props.history.location.pathname.includes('film')) {
+      props.getMovieById(params.id);
+      props.setSearchParams({ searchBy: 'genre' });
+      props.loadMovies();
     }
-  }, [props.selectedMovie]);
+  }, [location]);
 
   const genres = (genres: string[]) => <span>{genres.join(', ')}</span>;
 

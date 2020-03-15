@@ -50,8 +50,7 @@ export const getMovieById = (movieId: number) => (
         dispatch({ type: SET_MOVIE_BY_ID, selectedMovie: data });
       });
   } else {
-    const movie = movies.find((movie: IMovie) => movie.id === movieId);
-    console.log(movieId)
+    const movie = movies.find((movie: IMovie) => movie.id === +movieId);
     dispatch({ type: SET_MOVIE_BY_ID, selectedMovie: movie });
   }
 };

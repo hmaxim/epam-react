@@ -31,31 +31,23 @@ const App = (props: any) => {
   const query = useQuery(location.search);
 
   useEffect(() => {
-    const url = `${location.pathname}${location.search}`;
+    // const url = `${location.pathname}${location.search}`;
     if (!history.location.pathname.includes('film')) {
       // if (!props.movies.length && props.route !== url) {
-        props.setSearchParams({
-          searchBy: query.get('searchBy'),
-          search: query.get('search'),
-          sortBy: query.get('sortBy'),
-        });
+      props.setSearchParams({
+        searchBy: query.get('searchBy'),
+        search: query.get('search'),
+        sortBy: query.get('sortBy'),
+      });
       // }
       props.loadMovies();
     }
-    props.setRouteState(url);
+    // props.setRouteState(url);
   }, [location]);
 
-  const navigate = useCallback((id: number) => {
-    props.getMovieById(id);
-  }, []);
-
-  useEffect(() => {
-    if (props.selectedMovie) {
-      history.push(`/film/${props.selectedMovie.id}`);
-      props.setSearchParams({ searchBy: 'genre' });
-      props.loadMovies();
-    }
-  }, [props.selectedMovie]);
+  const navigate = (id: number) => {
+    history.push(`/film/${id}`);
+  };
 
   const renderMovies = (movies: IMovie[], loading: boolean) => {
     if (!loading) {
