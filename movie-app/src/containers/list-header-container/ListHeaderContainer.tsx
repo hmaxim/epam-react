@@ -28,7 +28,11 @@ const ListHeaderContainer = (props: any) => {
   ];
 
   useEffect(() => {
-    if (props.searchParams.sortBy !== query.get('sortBy') && !history.location.pathname.includes('film')) {
+    if (
+      query.get('sortBy') &&
+      props.searchParams.sortBy !== query.get('sortBy') &&
+      !history.location.pathname.includes('film')
+    ) {
       history.push({
         pathname: '/search',
         search: getNavUrl(props.searchParams),
@@ -44,12 +48,14 @@ const ListHeaderContainer = (props: any) => {
     <ListHeaderWrapper>
       <ListHeaderTitle>{props.listHeaderTitle}</ListHeaderTitle>
       <ListHeaderSwitchersContainer>
-        <SwitchersButtons
-          switchersTitle={'SORT BY'}
-          click={callback}
-          activeBtnValue={props.searchParams.sortBy}
-          searchButtonsParams={sortButtons}
-        ></SwitchersButtons>
+        {history.location.pathname.includes('search') ? (
+          <SwitchersButtons
+            switchersTitle={'SORT BY'}
+            click={callback}
+            activeBtnValue={props.searchParams.sortBy}
+            searchButtonsParams={sortButtons}
+          ></SwitchersButtons>
+        ) : null}
       </ListHeaderSwitchersContainer>
     </ListHeaderWrapper>
   );

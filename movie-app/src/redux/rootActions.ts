@@ -6,7 +6,6 @@ export const LOAD_MOVIES_SUCCESS = 'REDUX_THUNK_LOAD_MOVIES_SUCCESS';
 export const LOAD_MOVIES_ERROR = 'REDUX_THUNK_LOAD_MOVIES_ERROR';
 export const SET_SEARCH_PARAMS = 'REDUX_THUNK_SET_SEARCH_PARAMS';
 export const SET_MOVIE_BY_ID = 'REDUX_THUNK_GET_MOVIE_BY_ID';
-export const SET_ROUTE_STATE = 'REDUX_THUNK_SET_ROUTE_STATE';
 
 export const loadMovies = () => (dispatch: any, getState: any) => {
   dispatch({ type: LOAD_MOVIES_LOADING });
@@ -32,10 +31,6 @@ export const loadMovies = () => (dispatch: any, getState: any) => {
 
 export const setSearchParams = (searchParams: any) => (dispatch: any) => {
   dispatch({ type: SET_SEARCH_PARAMS, searchParams });
-};
-
-export const setRouteState = (url: string) => (dispatch: any) => {
-  dispatch({ type: SET_ROUTE_STATE, route: url });
 };
 
 export const getMovieById = (movieId: number) => (

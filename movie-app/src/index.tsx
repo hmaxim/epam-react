@@ -4,14 +4,16 @@ import './index.scss';
 import App from './containers/app/App';
 import { Provider } from 'react-redux';
 import configureStore from './redux/rootStore';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
+import { PersistGate } from 'redux-persist/integration/react';
 
 ReactDOM.render(
-  <Provider store={configureStore}>
-    <Router>
-      <Route path="/" component={App}>
-      </Route>
-    </Router>
+  <Provider store={configureStore().store}>
+    <PersistGate loading={null} persistor={configureStore().persistor}>
+      <Router>
+        <Route path="/" component={App}></Route>
+      </Router>
+    </PersistGate>
   </Provider>,
   document.getElementById('root'),
 );

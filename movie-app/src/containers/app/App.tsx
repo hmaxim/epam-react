@@ -11,7 +11,6 @@ import {
   getMovieById,
   loadMovies,
   setSearchParams,
-  setRouteState,
 } from '../../redux/rootActions';
 import EmptyState from '../../shared-components/empty-state/EmptyState';
 import MovieItem from '../../shared-components/movie-item/MovieItem';
@@ -31,7 +30,6 @@ const App = (props: any) => {
   const query = useQuery(location.search);
 
   useEffect(() => {
-    // const url = `${location.pathname}${location.search}`;
     if (!history.location.pathname.includes('film')) {
       if (!props.movies.length) {
         props.setSearchParams({
@@ -42,7 +40,6 @@ const App = (props: any) => {
       }
       props.loadMovies();
     }
-    // props.setRouteState(url);
   }, [location]);
 
   const navigate = (id: number) => {
@@ -94,7 +91,11 @@ const App = (props: any) => {
         </Switch>
 
         <ListHeaderContainer
-          listHeaderTitle={`${props.movies.length} movies found`}
+          listHeaderTitle={
+            history.location.pathname.includes('search')
+              ? `${props.movies.length} movies found`
+              : `Movies by ${props.searchParams.searchBy}`
+          }
         />
         <MoviesListWrapper id="movie-scroller" isEmptyList={false}>
           {renderMovies(props.movies, props.loading)}
@@ -118,7 +119,6 @@ const mapDispatchToProps = {
   loadMovies,
   getMovieById,
   setSearchParams,
-  setRouteState,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
