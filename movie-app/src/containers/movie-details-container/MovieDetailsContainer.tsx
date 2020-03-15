@@ -6,7 +6,8 @@ import {
   loadMovies,
   setSearchParams,
 } from '../../redux/rootActions';
-import { useLocation, useHistory, useParams } from 'react-router';
+import { useLocation, useParams } from 'react-router';
+import EmptyState from '../../shared-components/empty-state/EmptyState';
 
 const MovieDetailsContainer = (props: any) => {
   const location = useLocation();
@@ -22,7 +23,7 @@ const MovieDetailsContainer = (props: any) => {
 
   const genres = (genres: string[]) => <span>{genres.join(', ')}</span>;
 
-  return props.selectedMovie ? (
+  return props.selectedMovie && Object.keys(props.selectedMovie).length ? (
     <MovieDetailsWrapper score={props.selectedMovie.vote_average}>
       <div className="movie-poster">
         <img src={props.selectedMovie.poster_path} alt="poster" />
@@ -44,7 +45,7 @@ const MovieDetailsContainer = (props: any) => {
         </div>
       </div>
     </MovieDetailsWrapper>
-  ) : null;
+  ) : <EmptyState>Film not found</EmptyState>;
 };
 
 const mapStateToProps = (state: any) => {

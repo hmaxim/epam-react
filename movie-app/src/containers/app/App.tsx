@@ -33,13 +33,13 @@ const App = (props: any) => {
   useEffect(() => {
     // const url = `${location.pathname}${location.search}`;
     if (!history.location.pathname.includes('film')) {
-      // if (!props.movies.length && props.route !== url) {
-      props.setSearchParams({
-        searchBy: query.get('searchBy'),
-        search: query.get('search'),
-        sortBy: query.get('sortBy'),
-      });
-      // }
+      if (!props.movies.length) {
+        props.setSearchParams({
+          searchBy: query.get('searchBy'),
+          search: query.get('search'),
+          sortBy: query.get('sortBy'),
+        });
+      }
       props.loadMovies();
     }
     // props.setRouteState(url);
