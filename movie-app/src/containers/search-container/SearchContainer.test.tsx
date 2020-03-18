@@ -1,6 +1,6 @@
 import 'jsdom-global/register';
 import React, { Component } from 'react';
-import { shallow, mount, render } from 'enzyme';
+import { render } from 'enzyme';
 import 'jest-enzyme';
 import 'jest-styled-components';
 import SearchContainer from './SearchContainer';
