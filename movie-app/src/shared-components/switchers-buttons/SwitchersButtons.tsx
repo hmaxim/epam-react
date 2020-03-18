@@ -1,7 +1,14 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import SwitchersButtonWrapper from './SwitchersButtonWrapper';
 
-const SwitchersButtons = (props: any) => {
+export interface ISwitchersButtons {
+  searchButtonsParams: any[];
+  click: (buttonValue: string) => void;
+  switchersTitle: string;
+  activeBtnValue?: string;
+}
+
+const SwitchersButtons = (props: ISwitchersButtons) => {
   const [buttons, updateSearchButtons] = useState(props.searchButtonsParams);
 
   const activateButton = useCallback(

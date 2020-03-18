@@ -42,9 +42,9 @@ const App = (props: any) => {
     }
   }, [location]);
 
-  const navigate = (id: number) => {
+  const navigate = useCallback((id: number) => {
     history.push(`/film/${id}`);
-  };
+  }, []);
 
   const renderMovies = (movies: IMovie[], loading: boolean) => {
     if (!loading) {
@@ -54,7 +54,7 @@ const App = (props: any) => {
             <MovieItem
               navigate={() => navigate(item.id)}
               {...item}
-              key={item.id + Math.random()}
+              key={item.id}
             ></MovieItem>
           );
         });
@@ -70,7 +70,7 @@ const App = (props: any) => {
         <HeaderContainer></HeaderContainer>
 
         <Switch>
-          <Route path="/search">
+          <Route exact path="/search">
             <SearchContainer></SearchContainer>
           </Route>
 
@@ -82,12 +82,10 @@ const App = (props: any) => {
 
           <Redirect
             from="/"
-            to={`search?sortBy=${props.searchParams.sortBy}&searchBy=${props.searchParams.searchBy}`}
+            to={`search?sortBy=${props.searchParams.sortBy ||
+              'release_date'}&searchBy=${props.searchParams.searchBy ||
+              'title'}`}
           ></Redirect>
-
-          <Route path="*">
-            <EmptyState>PAGE NOT FOUND</EmptyState>
-          </Route>
         </Switch>
 
         <ListHeaderContainer

@@ -4,7 +4,7 @@ import './index.scss';
 import App from './containers/app/App';
 import { Provider } from 'react-redux';
 import configureStore from './redux/rootStore';
-import { HashRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 
 ReactDOM.render(

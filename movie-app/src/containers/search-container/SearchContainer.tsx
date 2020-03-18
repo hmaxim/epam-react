@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState, useMemo } from 'react';
 import SearchWrapper from './SearchWrapper';
 import Input from '../../shared-components/input/InputWrapper';
 import ButtonWrapper from '../../shared-components/button/ButtonWrapper';
@@ -14,10 +14,13 @@ const SearchContainer = (props: any) => {
   const query = useQuery(location.search);
   const isActive = (val: string): boolean => val === query.get('searchBy');
 
-  const searchButtonsParams = [
-    { label: 'Title', active: isActive('title'), buttonValue: 'title' },
-    { label: 'Genre', active: isActive('genre'), buttonValue: 'genre' },
-  ];
+  const searchButtonsParams = useMemo(
+    () => [
+      { label: 'Title', active: isActive('title'), buttonValue: 'title' },
+      { label: 'Genre', active: isActive('genre'), buttonValue: 'genre' },
+    ],
+    [],
+  );
 
   const [inputValue, updateValue] = useState(query.get('search') || '');
 
@@ -29,9 +32,9 @@ const SearchContainer = (props: any) => {
   );
 
   const onInputChange = useCallback(
-    (value: string) => {
-      props.setSearchParams({ search: value });
-      updateValue(value);
+    (event: any) => {
+      props.setSearchParams({ search: event.target.value });
+      updateValue(event.target.value);
     },
     [inputValue],
   );
@@ -49,7 +52,7 @@ const SearchContainer = (props: any) => {
         <h1 className="search-title">FIND YOUR MOVIE</h1>
         <div>
           <Input
-            onChange={event => onInputChange(event.target.value)}
+            onChange={onInputChange}
             value={inputValue}
           ></Input>
           <ButtonWrapper onClick={searchBtnClick}>SEARCH</ButtonWrapper>
