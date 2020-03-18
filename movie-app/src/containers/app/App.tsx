@@ -5,6 +5,7 @@ import {
   Redirect,
   Route,
   Switch,
+  Link,
 } from 'react-router-dom';
 import { IMovie } from '../../interfaces/IMovie';
 import {
@@ -80,24 +81,27 @@ const App = (props: any) => {
             component={MovieDetailsContainer}
           ></Route>
 
-          <Redirect
-            from="/"
-            to={`search?sortBy=${props.searchParams.sortBy ||
-              'release_date'}&searchBy=${props.searchParams.searchBy ||
-              'title'}`}
-          ></Redirect>
+          <Route path="*">
+            <EmptyState>PAGE NOT FOUND</EmptyState>
+            <Link to="/search">Go to Search</Link>
+          </Route>
         </Switch>
 
-        <ListHeaderContainer
-          listHeaderTitle={
-            history.location.pathname.includes('search')
-              ? `${props.movies.length} movies found`
-              : `Movies by ${props.searchParams.searchBy}`
-          }
-        />
-        <MoviesListWrapper id="movie-scroller" isEmptyList={false}>
-          {renderMovies(props.movies, props.loading)}
-        </MoviesListWrapper>
+        {history.location.pathname.includes('film') ||
+        history.location.pathname.includes('search') ? (
+          <div>
+            <ListHeaderContainer
+              listHeaderTitle={
+                history.location.pathname.includes('search')
+                  ? `${props.movies.length} movies found`
+                  : `Movies by ${props.searchParams.searchBy}`
+              }
+            />
+            <MoviesListWrapper id="movie-scroller" isEmptyList={false}>
+              {renderMovies(props.movies, props.loading)}
+            </MoviesListWrapper>
+          </div>
+        ) : null}
       </AppWrapper>
     </ErrorBoundary>
   );
