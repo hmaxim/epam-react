@@ -89,7 +89,7 @@ const App = (props: any) => {
 
         {location.pathname.includes('film') ||
         location.pathname.includes('search') ? (
-          <div>
+          <div className='list-container'>
             <ListHeaderContainer
               listHeaderTitle={
                 location.pathname.includes('search')
