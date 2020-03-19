@@ -31,7 +31,7 @@ const App = (props: any) => {
   const query = useQuery(location.search);
 
   useEffect(() => {
-    if (!history.location.pathname.includes('film')) {
+    if (!location.pathname.includes('film')) {
       if (!props.movies.length) {
         props.setSearchParams({
           searchBy: query.get('searchBy'),
@@ -87,12 +87,12 @@ const App = (props: any) => {
           </Route>
         </Switch>
 
-        {history.location.pathname.includes('film') ||
-        history.location.pathname.includes('search') ? (
+        {location.pathname.includes('film') ||
+        location.pathname.includes('search') ? (
           <div>
             <ListHeaderContainer
               listHeaderTitle={
-                history.location.pathname.includes('search')
+                location.pathname.includes('search')
                   ? `${props.movies.length} movies found`
                   : `Movies by ${props.searchParams.searchBy}`
               }

@@ -14,7 +14,7 @@ const MovieDetailsContainer = (props: any) => {
   const params: any = useParams();
 
   useEffect(() => {
-    if (props.history.location.pathname.includes('film')) {
+    if (location.pathname.includes('film')) {
       props.getMovieById(params.id);
       props.setSearchParams({ searchBy: 'genre' });
       props.loadMovies();
@@ -32,7 +32,7 @@ const MovieDetailsContainer = (props: any) => {
         <div className="movie-title-container">
           <h1 className="title">{props.selectedMovie.title}</h1>
           <div className="score">
-            {+props.selectedMovie.vote_average.toFixed(1)}
+            {props.selectedMovie.vote_average.toFixed(1)}
           </div>
         </div>
         <div className="genre">{genres(props.selectedMovie.genres)}</div>
