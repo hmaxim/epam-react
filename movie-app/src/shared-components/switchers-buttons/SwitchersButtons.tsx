@@ -1,7 +1,14 @@
-import React, { useState, useCallback } from "react";
-import SwitchersButtonWrapper from "./SwitchersButtonWrapper";
+import React, { useState, useCallback, useEffect } from 'react';
+import SwitchersButtonWrapper from './SwitchersButtonWrapper';
 
-const SwitchersButtons = (props: any) => {
+export interface ISwitchersButtons {
+  searchButtonsParams: any[];
+  click: (buttonValue: string) => void;
+  switchersTitle: string;
+  activeBtnValue?: string;
+}
+
+const SwitchersButtons = (props: ISwitchersButtons) => {
   const [buttons, updateSearchButtons] = useState(props.searchButtonsParams);
 
   const activateButton = useCallback(
@@ -10,9 +17,14 @@ const SwitchersButtons = (props: any) => {
         i === index ? (item.active = true) : (item.active = false);
         return item;
       });
+
+      if (props.click && props.activeBtnValue !== arr[index].buttonValue) {
+        props.click(arr[index].buttonValue);
+      }
+
       updateSearchButtons(arr);
     },
-    [buttons]
+    [props.activeBtnValue],
   );
 
   return (
@@ -21,7 +33,9 @@ const SwitchersButtons = (props: any) => {
       {buttons.map((button: any, index: number) => {
         return (
           <SwitchersButtonWrapper
-            onClick={() => activateButton(index)}
+            onClick={() => {
+              activateButton(index);
+            }}
             key={button.label}
             id={button.label}
             active={button.active}

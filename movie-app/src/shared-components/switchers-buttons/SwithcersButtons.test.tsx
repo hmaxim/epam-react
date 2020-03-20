@@ -7,21 +7,21 @@ import SwitchersButtons from './SwitchersButtons';
 import SwitchersButtonWrapper from './SwitchersButtonWrapper';
 
 const buttons = [
-  {
-    label: 'test1',
-    active: false,
-  },
-  {
-    label: 'test2',
-    active: true,
-  },
+  { label: 'Title', active: false, buttonValue: 'title' },
+  { label: 'Genre', active: false, buttonValue: 'genre' },
 ];
 
 describe('SwitchersButtons component', () => {
   let component: any;
 
   beforeEach(() => {
-    component = mount(<SwitchersButtons searchButtonsParams={buttons} />);
+    component = mount(
+      <SwitchersButtons
+        searchButtonsParams={buttons}
+        click={() => null}
+        switchersTitle="test"
+      />,
+    );
   });
 
   test('should call callBack and activate first button', () => {
