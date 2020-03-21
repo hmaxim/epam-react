@@ -7,13 +7,16 @@ import configureStore from './redux/rootStore';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 
-ReactDOM.render(
+// const preloadedState = window.__PRELOADED_STATE__;
+// delete window.__PRELOADED_STATE__;
+
+ReactDOM.hydrate(
   <Provider store={configureStore().store}>
     {/* <PersistGate loading={null} persistor={configureStore().persistor}> */}
-      <Router>
-        <Route path="/" component={App}></Route>
-      </Router>
+    <Router>
+      <Route path="/" component={App}></Route>
+    </Router>
     {/* </PersistGate> */}
   </Provider>,
-  document.getElementById('root'),
+  document.getElementById('root')
 );

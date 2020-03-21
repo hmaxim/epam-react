@@ -43,6 +43,8 @@ package-lock.json
 ./movie-app/dist
 /tmp
 /out-tsc
+/server-build
+server-build
 
 # dependencies
 /node_modules
