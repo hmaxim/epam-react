@@ -4,7 +4,7 @@
     "sourceMap": true,
     "noImplicitAny": true,
     "target": "es6",
-    "jsx": "react",
+    "jsx": "preserve",
     "lib": ["dom", "esnext"],
     "module": "esnext",
     "esModuleInterop": true,
@@ -13,11 +13,19 @@
     "plugins": [
       {
         "transform": "typescript-magic-variable-plugin",
-        // the following options is optional
         "setComponentId": true,
         "setDisplayName": true,
         "minify": true
       }
-    ]
-  }
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true
+  },
+  "exclude": ["node_modules"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/index.js"]
 }

@@ -11,22 +11,18 @@ declare global {
   }
 }
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers = typeof window !== 'undefined' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose;
 const middleware = [thunk];
 
 const persistConfig: PersistConfig = {
   key: 'root',
   storage,
-  blacklist: ['navigation'],
+  blacklist: ['navigation']
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-const configureStore = createStore(
-  persistedReducer,
-  initialState,
-  composeEnhancers(applyMiddleware(...middleware)),
-);
+const configureStore = createStore(persistedReducer, initialState, composeEnhancers(applyMiddleware(...middleware)));
 
 export default () => {
   let store = configureStore;
