@@ -1,0 +1,28 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#__next {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+
+.movie-poster {
+  width: 100%;
+  height: 450px;
+  margin-bottom: 10px;
+}
+
+img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}

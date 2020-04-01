@@ -13,9 +13,7 @@ export const loadMovies = () => (dispatch: any, getState: any) => {
   const searchValue = getState().searchParams.search || '';
   const sortBy = getState().searchParams.sortBy || '';
 
-  API.get(
-    `/movies?sortOrder=desc&sortBy=${sortBy}&searchBy=${searchByValue}&search=${searchValue}`,
-  )
+  API.get(`/movies?sortOrder=desc&sortBy=${sortBy}&searchBy=${searchByValue}&search=${searchValue}`)
     .then(data => data.data)
     .then(
       (data: any) => {
@@ -24,19 +22,20 @@ export const loadMovies = () => (dispatch: any, getState: any) => {
       error =>
         dispatch({
           type: LOAD_MOVIES_ERROR,
-          error: error || 'Unexpected Error!!!',
-        }),
+          error: error || 'Unexpected Error!!!'
+        })
     );
+};
+
+export const setMovies = (moviesList: IMovie[]) => (dispatch: any) => {
+  dispatch({ type: LOAD_MOVIES_SUCCESS, movies: moviesList });
 };
 
 export const setSearchParams = (searchParams: any) => (dispatch: any) => {
   dispatch({ type: SET_SEARCH_PARAMS, searchParams });
 };
 
-export const getMovieById = (movieId: number) => (
-  dispatch: any,
-  getState: any,
-) => {
+export const getMovieById = (movieId: number) => (dispatch: any, getState: any) => {
   const movies: IMovie[] = getState().movies;
   if (!movies.length) {
     API.get(`movies/${movieId}`)

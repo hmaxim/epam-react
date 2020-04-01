@@ -26,6 +26,7 @@ const configureStore = createStore(persistedReducer, initialState, composeEnhanc
 
 export default () => {
   let store = configureStore;
-  let persistor = persistStore(store);
-  return { store, persistor };
+  // let persistor = persistStore(store);
+  // return { store, persistor };
+  return { store };
 };

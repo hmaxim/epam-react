@@ -1,18 +1,8 @@
 import React, { useCallback, useEffect } from 'react';
 import { connect } from 'react-redux';
-import {
-  BrowserRouter as Router,
-  Redirect,
-  Route,
-  Switch,
-  Link,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, Route, Switch, Link } from 'react-router-dom';
 import { IMovie } from '../../interfaces/IMovie';
-import {
-  getMovieById,
-  loadMovies,
-  setSearchParams,
-} from '../../redux/rootActions';
+import { getMovieById, loadMovies, setSearchParams } from '../../redux/rootActions';
 import EmptyState from '../../shared-components/empty-state/EmptyState';
 import MovieItem from '../../shared-components/movie-item/MovieItem';
 import ErrorBoundary from '../error-boundary/ErrorBoundary';
@@ -36,7 +26,7 @@ const App = (props: any) => {
         props.setSearchParams({
           searchBy: query.get('searchBy'),
           search: query.get('search'),
-          sortBy: query.get('sortBy'),
+          sortBy: query.get('sortBy')
         });
       }
       props.loadMovies();
@@ -51,13 +41,7 @@ const App = (props: any) => {
     if (!loading) {
       if (movies.length) {
         return movies.map((item: IMovie) => {
-          return (
-            <MovieItem
-              navigate={() => navigate(item.id)}
-              {...item}
-              key={item.id}
-            ></MovieItem>
-          );
+          return <MovieItem navigate={() => navigate(item.id)} {...item} key={item.id}></MovieItem>;
         });
       } else {
         return <EmptyState>No films found</EmptyState>;
@@ -75,11 +59,7 @@ const App = (props: any) => {
             <SearchContainer></SearchContainer>
           </Route>
 
-          <Route
-            exact
-            path="/film/:id"
-            component={MovieDetailsContainer}
-          ></Route>
+          <Route exact path="/film/:id" component={MovieDetailsContainer}></Route>
 
           <Route path="*">
             <EmptyState>PAGE NOT FOUND</EmptyState>
@@ -87,9 +67,8 @@ const App = (props: any) => {
           </Route>
         </Switch>
 
-        {location.pathname.includes('film') ||
-        location.pathname.includes('search') ? (
-          <div className='list-container'>
+        {location.pathname.includes('film') || location.pathname.includes('search') ? (
+          <div className="list-container">
             <ListHeaderContainer
               listHeaderTitle={
                 location.pathname.includes('search')
@@ -114,13 +93,13 @@ const mapStateToProps = (state: any) => {
     error: state.error,
     selectedMovie: state.selectedMovie,
     searchParams: state.searchParams,
-    route: state.route,
+    route: state.route
   };
 };
 const mapDispatchToProps = {
   loadMovies,
   getMovieById,
-  setSearchParams,
+  setSearchParams
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
