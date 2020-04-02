@@ -10,7 +10,7 @@ const MovieDetailsContainer = (props: any) => {
   const router = useRouter();
 
   useEffect(() => {
-    if (location.pathname.includes('film')) {
+    if (router.pathname.includes('film')) {
       props.getMovieById(router.query.id);
       props.setSearchParams({ searchBy: 'genre' });
       props.loadMovies();

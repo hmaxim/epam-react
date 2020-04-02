@@ -12,7 +12,7 @@ const IndexApp = props => {
 
   const url = `/search${getNavUrl(props.searchParams)}`;
   useEffect(() => {
-    if (!router.route.includes('search')) router.push(url);
+    router.push(url);
   }, []);
   return <div></div>;
 };

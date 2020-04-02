@@ -36,7 +36,7 @@ const ListHeaderContainer = (props: any) => {
   }, [props.searchParams]);
 
   useEffect(() => {
-    if (!router.pathname.includes('film')) {
+    if (router.query.sortBy && props.searchParams.sortBy !== router.query.sortBy && !router.pathname.includes('film')) {
       navigate();
     }
   }, [props.searchParams.sortBy]);
