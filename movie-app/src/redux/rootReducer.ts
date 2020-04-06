@@ -3,9 +3,10 @@ import {
   LOAD_MOVIES_SUCCESS,
   LOAD_MOVIES_ERROR,
   SET_SEARCH_PARAMS,
-  SET_MOVIE_BY_ID,
+  SET_MOVIE_BY_ID
 } from './rootActions';
 import { IMovie } from '../interfaces/IMovie';
+import { List, Map } from 'immutable';
 
 export const initialState: any = {
   movies: [],
@@ -14,45 +15,45 @@ export const initialState: any = {
   searchParams: {
     sortBy: 'release_date',
     searchBy: 'title',
-    search: '',
+    search: ''
   },
-  selectedMovie: null,
+  selectedMovie: null
 };
 
 const reduxThunkReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case LOAD_MOVIES_LOADING: {
-      return {
+      return Map({
         ...state,
         loading: true,
-        error: '',
-      };
+        error: ''
+      }).toJS();
     }
     case LOAD_MOVIES_SUCCESS: {
-      return {
+      return Map({
         ...state,
-        movies: action.movies,
-        loading: false,
-      };
+        movies: List(action.movies),
+        loading: false
+      }).toJS();
     }
     case LOAD_MOVIES_ERROR: {
-      return {
+      return Map({
         ...state,
         loading: false,
-        error: action.error,
-      };
+        error: action.error
+      }).toJS();;
     }
     case SET_SEARCH_PARAMS: {
-      return {
+      return Map({
         ...state,
-        searchParams: { ...state.searchParams, ...action.searchParams },
-      };
+        searchParams: { ...state.searchParams, ...action.searchParams }
+      }).toJS();;
     }
     case SET_MOVIE_BY_ID: {
-      return {
+      return Map({
         ...state,
-        selectedMovie: action.selectedMovie,
-      };
+        selectedMovie: action.selectedMovie
+      }).toJS();;
     }
     default: {
       return state;
