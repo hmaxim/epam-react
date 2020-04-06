@@ -1,24 +1,24 @@
-const merge = require("webpack-merge");
+const merge = require('webpack-merge');
 
-module.exports = merge(require("./webpack.common.config"), {
-  devtool: "source-map",
+module.exports = merge(require('./webpack.common.config'), {
+  devtool: 'source-map',
   optimization: {
     splitChunks: {
       cacheGroups: {
         commons: {
-          name: "commons",
-          chunks: "all",
+          name: 'commons',
+          chunks: 'all',
           minSize: 0,
-          minChunks: 2
+          minChunks: 2,
         },
         styles: {
-          name: "styles",
+          name: 'styles',
           test: /\.css$/,
-          chunks: "all",
-          enforce: true
-        }
-      }
-    }
+          chunks: 'all',
+          enforce: true,
+        },
+      },
+    },
   },
-  watch: false
+  watch: false,
 });

@@ -1,10 +1,8 @@
-const getBtn = label => {
-  return cy.get('button').within(() => cy.contains(label));
-};
+const getBtn = (label) => cy.get('button').within(() => cy.contains(label));
 
 describe('Movie App', () => {
   beforeEach(() => {
-    cy.visit('/');  
+    cy.visit('/');
   });
 
   it('Should contain title netflixRoulette', () => {
@@ -22,7 +20,7 @@ describe('Movie App', () => {
     });
 
     it('should scroll to the page botom', () => {
-      cy.get('#movie-scroller').scrollTo('bottom');  
+      cy.get('#movie-scroller').scrollTo('bottom');
     });
   });
 
